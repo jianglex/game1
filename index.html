@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#D6E9FF" />
+  <title>Dare to Develop · Career Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-doodle" aria-hidden="true">
+    <span class="spark s1">✧</span>
+    <span class="spark s2">★</span>
+    <span class="spark s3">●</span>
+    <span class="spark s4">✦</span>
+  </div>
+
+  <main class="stage">
+    <div class="comic-book">
+      <header class="book-header">
+        <div class="brand-block">
+          <h1 class="brand">Dare to Develop</h1>
+          <p class="tagline">Act on your career development plan</p>
+        </div>
+
+        <div class="workday-logo" title="Workday" aria-label="Workday">
+          <img src="assets/workday-logo.png" alt="Workday" />
+        </div>
+      </header>
+
+      <div class="book-body">
+        <section id="screen-quiz" class="screen active">
+          <div class="quiz-spread">
+            <div class="quiz-main">
+              <div class="panel choices-panel">
+                <div class="panel-label soft">选出最合适的 Solution</div>
+                <div class="choices" id="choices" role="list"></div>
+              </div>
+
+              <div class="bear-stage">
+                <h2 class="ticket-title" id="ticket-title"></h2>
+                <div class="bubble question-bubble">
+                  <p id="ticket-question"></p>
+                </div>
+                <div class="bear-anim hero" id="bear-hero" aria-hidden="true">
+                  <img class="bear-frame is-active" src="assets/hubbie-bear.png?v=4" alt="" width="320" height="320" />
+                  <img class="bear-frame" src="assets/hubbie-wave-1.png?v=2" alt="" width="320" height="320" />
+                  <img class="bear-frame" src="assets/hubbie-wave-2.png?v=2" alt="" width="320" height="320" />
+                  <img class="bear-frame" src="assets/hubbie-wave-3.png?v=2" alt="" width="320" height="320" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="screen-success" class="screen">
+          <div class="result-spread win">
+            <div class="result-badge-wrap">
+              <p class="result-verdict">通关成功</p>
+              <img
+                class="bear-mascot mid"
+                src="assets/hubbie-bear-happy.png?v=4"
+                alt=""
+                width="260"
+                height="260"
+                aria-hidden="true"
+              />
+            </div>
+            <div class="result-right">
+              <h2 class="result-brand">Dare to Develop</h2>
+              <div class="bubble tip-bubble">
+                <p class="tip-label">匹配后提示</p>
+                <p id="success-tip"></p>
+                <div class="btn-row">
+                  <button type="button" class="btn btn-primary" id="btn-next">再来一题</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="screen-fail" class="screen">
+          <div class="result-spread lose">
+            <div class="result-badge-wrap">
+              <p class="result-verdict fail-verdict">回答错误</p>
+              <img
+                class="bear-mascot mid"
+                src="assets/hubbie-bear-sad.png?v=4"
+                alt=""
+                width="260"
+                height="260"
+                aria-hidden="true"
+              />
+            </div>
+            <div class="bubble speech-bubble">
+              <p class="result-badge soft">再试一次</p>
+              <p>没关系啦，小熊陪你再选一次～</p>
+              <button type="button" class="btn btn-primary" id="btn-retry">重来</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
