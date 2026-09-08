@@ -2,11 +2,12 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="theme-color" content="#D6E9FF" />
   <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="screen-orientation" content="landscape" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="apple-touch-icon" href="assets/icon-192.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png" />
@@ -17,6 +18,10 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="rotate-tip" id="rotate-tip" aria-hidden="true">
+    <p>请将设备横过来玩～</p>
+    <span>本游戏为横版布局</span>
+  </div>
   <div class="bg-doodle" aria-hidden="true">
     <span class="spark s1">✧</span>
     <span class="spark s2">★</span>
@@ -113,5 +118,18 @@
   </main>
 
   <script src="game.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("./sw.js").catch(function () {});
+    }
+    function tryLockLandscape() {
+      var o = screen.orientation || screen.mozOrientation || screen.msOrientation;
+      if (o && o.lock) {
+        o.lock("landscape").catch(function () {});
+      }
+    }
+    tryLockLandscape();
+    window.addEventListener("orientationchange", tryLockLandscape);
+  </script>
 </body>
 </html>
